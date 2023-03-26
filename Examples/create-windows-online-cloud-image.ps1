@@ -73,7 +73,7 @@ Set-IniFileValue -Path $configFilePath -Section "Default" -Key "enable_custom_wa
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "compression_format" -Value "tar.gz"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "disk_layout" -Value "UEFI"
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "disable_secure_boot" -Value "True"
-Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 3
+Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 4
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "ram_size" -Value (4GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "disk_size" -Value (30GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "external_switch" -Value $switchName
