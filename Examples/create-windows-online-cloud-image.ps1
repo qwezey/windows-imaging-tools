@@ -49,7 +49,7 @@ $virtIODownloadLink = "https://fedorapeople.org/groups/virt/virtio-win/direct-do
 # Extra drivers path contains the drivers for the baremetal nodes
 # Examples: Chelsio NIC Drivers, Mellanox NIC drivers, LSI SAS drivers, etc.
 # The cmdlet will recursively install all the drivers from the folder and subfolders
-$extraDriversPath = "C:\drivers\"
+# $extraDriversPath = "C:\drivers\"
 
 # Every Windows ISO can contain multiple Windows flavors like Core, Standard, Datacenter
 # Usually, the second image version is the Standard one
@@ -69,12 +69,16 @@ Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_name" -Val
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_path" -Value $windowsImagePath
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "image_type" -Value "MAAS"
 Set-IniFileValue -Path $configFilePath -Section "Default" -Key "install_maas_hooks" -Value "True"
-Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 4
+Set-IniFileValue -Path $configFilePath -Section "Default" -Key "enable_custom_wallpaper" -Value "False"
+Set-IniFileValue -Path $configFilePath -Section "Default" -Key "compression_format" -Value "tar.gz"
+Set-IniFileValue -Path $configFilePath -Section "Default" -Key "disk_layout" -Value "UEFI"
+Set-IniFileValue -Path $configFilePath -Section "vm" -Key "disable_secure_boot" -Value "True"
+Set-IniFileValue -Path $configFilePath -Section "vm" -Key "cpu_count" -Value 3
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "ram_size" -Value (4GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "disk_size" -Value (30GB)
 Set-IniFileValue -Path $configFilePath -Section "vm" -Key "external_switch" -Value $switchName
 Set-IniFileValue -Path $configFilePath -Section "drivers" -Key "virtio_iso_path" -Value $virtIOISOPath
-Set-IniFileValue -Path $configFilePath -Section "drivers" -Key "drivers_path" -Value $extraDriversPath
+# Set-IniFileValue -Path $configFilePath -Section "drivers" -Key "drivers_path" -Value $extraDriversPath
 Set-IniFileValue -Path $configFilePath -Section "updates" -Key "install_updates" -Value "True"
 Set-IniFileValue -Path $configFilePath -Section "updates" -Key "purge_updates" -Value "True"
 Set-IniFileValue -Path $configFilePath -Section "sysprep" -Key "disable_swap" -Value "True"
