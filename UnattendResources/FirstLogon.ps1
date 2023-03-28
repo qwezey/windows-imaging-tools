@@ -35,6 +35,13 @@ try
             # Nothing to do
         }
     }
+    Write-Host "Creating new admin user"
+    $myUsername = "root"
+    $myPassword = ConvertTo-SecureString "root" -AsPlainText -Force
+    New-LocalUser -Name "$myUsername" -Password $myPassword -FullName "$myUsername" -Description "Admin"
+    Add-LocalGroupMember -Group "Administrators" -Member "$myUsername"
+    Write-Host "Created new admin user"
+    & DISM /Online /Set-Edition:ServerStandard /ProductKey:VDYBN-27WPP-V4HQT-9VMD4-VMK7H /AcceptEula /NoRestart
 }
 catch
 {
