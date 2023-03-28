@@ -36,8 +36,8 @@ try
         }
     }
     Write-Host "Creating new admin user"
-    $myUsername = "root"
-    $myPassword = ConvertTo-SecureString "root" -AsPlainText -Force
+    $myUsername = "Root"
+    $myPassword = ConvertTo-SecureString "RootPassword123" -AsPlainText -Force
     New-LocalUser -Name "$myUsername" -Password $myPassword -FullName "$myUsername" -Description "Admin"
     Add-LocalGroupMember -Group "Administrators" -Member "$myUsername"
     Write-Host "Created new admin user"
