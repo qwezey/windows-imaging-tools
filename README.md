@@ -31,6 +31,22 @@ https://github.com/cloudbase/cloudbase-init-offline-install
 
 ## Fast path to create a Windows image
 
+### For QweZey
+
+1. Create the following folder: `C:\images`.
+2. Enable Hyper-V
+3. Run the following to install submodules:
+
+   ```powershell
+   git submodule update --init
+   ```
+
+4. Run the following to create the image:
+
+   ```powershell
+   .\Examples\create-windows-online-cloud-image.ps1
+   ```
+
 ### Requirements:
 
 * A Windows host, with Hyper-V virtualization enabled, PowerShell >=v4 support<br/>
